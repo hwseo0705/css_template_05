@@ -1,8 +1,12 @@
-
-
 //맨 위로 이동 버튼 나타내고 숨겨주는 함수
 function hideGoTop(scrollTop) {
     const $goTop = document.querySelector('.go-top');
+
+    /* 
+        toggle함수의 2번째 인수로 논리값을 전달하면
+        true일 경우 클래스를 강제로 추가하고
+        false일 경우 클래스를 강제로 제거한다.
+    */
 
     $goTop.classList.toggle('hide', scrollTop < 800);
 
@@ -31,7 +35,7 @@ function changeFixHeader(scrollTop) {
 }
 
 //즉시 실행 함수
-(function(){
+(function () {
 
     //스크롤 이벤트 - 1. 헤더 변경 2. 맨위로 이동 화살표 처리
     document.addEventListener('scroll', e => {
@@ -45,7 +49,7 @@ function changeFixHeader(scrollTop) {
         hideGoTop(scrollTop);
         //헤더 변경 처리
         changeFixHeader(scrollTop);
-        
+
     });
 
 
@@ -54,7 +58,7 @@ function changeFixHeader(scrollTop) {
         //jQuery animate함수: 애니메이션의 종류나 속도 지정
         $('html, body').animate({
             scrollTop: 0
-        }, 1200);
+        }, 1200); // takes 1.2 seconds to get to top:0
     });
 
 }());
